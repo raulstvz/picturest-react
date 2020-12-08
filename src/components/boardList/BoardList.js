@@ -4,14 +4,7 @@ import BoardCard from "../boardCard/BoardCard";
 import BoardForm from "../boardForm/BoardForm";
 import PlusIcon from "../../assets/plus.svg";
 
-const BoardList = () => {
-  const [boards, setBoards] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/boards")
-      .then((response) => response.json())
-      .then((json) => setBoards(json));
-  }, []);
+const BoardList = ({user, boards}) => {
 
   const [visible, setVisible] = useState(false);
 
@@ -27,12 +20,14 @@ const BoardList = () => {
         <img
           className="boardList__plusIcon"
           src={PlusIcon}
+          alt="Plus icon"
           onClick={toggleVisible}
         />
         ) : (
           <img
           className="boardList__plusIcon"
           src={PlusIcon}
+          alt="Plus icon"
           onClick={toggleVisible}
           style={{
             transform:"rotate(45deg)"
@@ -40,7 +35,7 @@ const BoardList = () => {
         />
         )}        
       </div>
-      <BoardForm visible={visible} />
+      <BoardForm visible={visible} user={user}/>
       <div className="boardList__container">
         {boards.map((board) => (
           <BoardCard board={board} />

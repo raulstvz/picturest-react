@@ -4,14 +4,8 @@ import PinCard from "../pinCard/PinCard";
 import PinForm from "../pinForm/PinForm";
 import PlusIcon from "../../assets/plus.svg";
 
-const PinList = () => {
-  const [pins, setPins] = useState([]);
+const PinList = ({user, boards, pins}) => {
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/pins")
-      .then((response) => response.json())
-      .then((json) => setPins(json));
-  }, []);
 
   const [visible, setVisible] = useState(false);
 
@@ -27,12 +21,14 @@ const PinList = () => {
         <img
           className="boardList__plusIcon"
           src={PlusIcon}
+          alt="Plus icon"
           onClick={toggleVisible}
         />
         ) : (
           <img
           className="boardList__plusIcon"
           src={PlusIcon}
+          alt="Plus icon"
           onClick={toggleVisible}
           style={{
             transform:"rotate(45deg)"
@@ -40,7 +36,7 @@ const PinList = () => {
         />
         )}
       </div>
-      <PinForm visible={visible} />
+      <PinForm user={user} boards={boards} visible={visible} />
       <div className="pinList__container">
         {pins.map((pin) => (
           <PinCard pin={pin} />

@@ -14,7 +14,21 @@ function App() {
       .then((json) => setUser(json));
   }, []);
 
-  console.log(user);
+  const [boards, setBoards] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/boards")
+      .then((response) => response.json())
+      .then((json) => setBoards(json));
+  }, []);
+
+  const [pins, setPins] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/pins")
+      .then((response) => response.json())
+      .then((json) => setPins(json));
+  }, []);
 
   return (
     <div className="app__body">
@@ -28,8 +42,8 @@ function App() {
         fullName={`${user.firstName} ${user.lastName}`}
         followingCount={user.id}
       />
-      <BoardList />
-      <PinList />
+      <BoardList user={user} boards={boards}/>
+      <PinList user={user} boards={boards} pins={pins}/>
     </div>
   );
 }
