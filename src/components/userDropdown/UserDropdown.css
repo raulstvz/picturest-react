@@ -1,7 +1,7 @@
 .dropdown__container{
     position: absolute;
     margin-top: 250px;
-    margin-left: -50px;
+    right: 40px;
     padding: 10px 0px 10px 20px;
     height: 160px;
     width: 160px;
