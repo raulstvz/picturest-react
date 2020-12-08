@@ -18,7 +18,6 @@ function App() {
 
   return (
     <div className="app__body">
-      <p>Hello world</p>
       <Header
         avatar={user.avatar}
         fullname={`${user.firstName} ${user.lastName}`}
