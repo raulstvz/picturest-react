@@ -1,0 +1,12 @@
+.userMenu__container{
+    display: flex;
+    align-items: center;
+}
+
+.usermenu_avatar{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-top: 2.5px;
+    margin-right: 10px;
+};

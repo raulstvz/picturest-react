@@ -1,0 +1,12 @@
+.boardCard__container{
+    margin: 25px;
+    background-color: #F1F1F1;
+    height: 180px;
+    width: 220px;
+    border-radius: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+}; 

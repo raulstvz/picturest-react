@@ -1,0 +1,27 @@
+.custom_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  min-width: 90px;
+  border-radius: 21.5px;
+  background: #ffffff;
+  margin-left: 30px;
+}
+
+.custom_button > p {
+  align-self: center;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.custom_button:hover {
+  background: #f1f1f1;
+}
+
+.custom_button:active {
+  background: #14142b;
+  color: #ffffff;
+}

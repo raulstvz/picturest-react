@@ -1,0 +1,10 @@
+.header__container {
+  height: 50px;
+  width: 100vw;
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}

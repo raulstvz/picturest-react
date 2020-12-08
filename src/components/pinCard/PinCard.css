@@ -1,0 +1,11 @@
+.pinCard__image{
+    margin: 25px;
+    height: auto;
+    width: 300px;
+    border-radius: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px;
+};
