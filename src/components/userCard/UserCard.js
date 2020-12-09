@@ -1,11 +1,21 @@
 import React from 'react';
 import './userCard.css';
 
+import { Link, useHistory } from 'react-router-dom';
+
 const UserCard = ({avatar, fullName, userName, followingCount}) => {
+
+    let history = useHistory();
+    
+    const handleClick = () => {
+        history.pushState("/home")
+    }
 
     return(
         <div className="usercard_container">
-            <img src={avatar} alt="User Avatar" className="usercard_avatar"/>
+            <Link to="/user">
+                <img src={avatar} alt="User Avatar" className="usercard_avatar"/>
+            </Link>
             <span className="usercard_fullName" style={{
                 fontSize:"20px",
                 fontWeight:"500"
@@ -20,6 +30,9 @@ const UserCard = ({avatar, fullName, userName, followingCount}) => {
                 fontWeight:"500",
                 color:"#464646"
             }}>{followingCount} Following</span>
+            <button type="button" onClick={handleClick}>
+                Back
+            </button>
         </div>
     )
 }

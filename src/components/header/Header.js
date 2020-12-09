@@ -3,6 +3,7 @@ import "./Header.css";
 import Logo from "../../assets/logo.svg";
 import Button from "../button/Button";
 import UserMenu from "../userMenu/UserMenu";
+import { Link } from "react-router-dom";
 
 const Header = ({ avatar, fullname }) => {
   return (
@@ -17,7 +18,9 @@ const Header = ({ avatar, fullname }) => {
           justifyContent: "space-around",
         }}
       >
-        <img src={Logo} alt="Picturest Logo" className="header__logo" />
+        <Link to="/">
+          <img src={Logo} alt="Picturest Logo" className="header__logo" />
+        </Link>
         <Button name="Home" />
       </div>
       <UserMenu avatar={avatar} fullname={fullname} />

@@ -41,6 +41,7 @@ const PinForm = ({ user, boards, visible }) => {
     board: board,
   };
 
+  console.log(body)
   //Fetch function
   const handleCreate = () => {
     const options = {
@@ -48,6 +49,7 @@ const PinForm = ({ user, boards, visible }) => {
       headers: {
         "Content-Type": "application/json",
       },
+      mode: "cors",
       body: JSON.stringify(body),
     };
 
@@ -86,7 +88,7 @@ const PinForm = ({ user, boards, visible }) => {
                 ))}
               </select>
             </label>
-            <input
+            <button
               className="create__button"
               type="submit"
               value="Create"

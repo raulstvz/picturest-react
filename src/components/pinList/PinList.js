@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import "./PinList.css";
 import PinCard from "../pinCard/PinCard";
 import PinForm from "../pinForm/PinForm";

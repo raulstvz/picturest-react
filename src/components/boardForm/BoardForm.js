@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import "./BoardForm.css";
 
 const BoardForm = ({ visible, user }) => {
-  
   // Title
   const [title, setTitle] = useState();
 
@@ -30,14 +29,14 @@ const BoardForm = ({ visible, user }) => {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     };
 
     fetch("http://localhost:5000/api/boards", options)
-    .then((res) => console.log(res.json))
-    .then(json => console.log(json))
+      .then((res) => console.log(res.json))
+      .then((json) => console.log(json));
   };
 
   return (

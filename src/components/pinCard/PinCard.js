@@ -6,7 +6,7 @@ const PinCard = ({pin}) => {
         <div>
             <img
                 src={pin.source}
-                alt="Pin Image"            
+                alt="Pin"            
                 className="pinCard__image" 
             />
             <p className="pinCard__title" style={{

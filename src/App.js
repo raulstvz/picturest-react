@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import UserCard from "./components/userCard/UserCard";
+
 import Header from "./components/header/Header";
-import BoardList from "./components/boardList/BoardList";
-import PinList from "./components/pinList/PinList";
+
+import BoardPage from "./pages/boardPage";
+import HomePage from "./pages/homePage";
+import UserProfilePage from "./pages/userProfilePage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -30,7 +33,7 @@ function App() {
       .then((json) => setPins(json));
   }, []);
 
-  return (
+  /* return (
     <div className="app__body">
       <Header
         avatar={user.avatar}
@@ -44,6 +47,29 @@ function App() {
       />
       <BoardList user={user} boards={boards}/>
       <PinList user={user} boards={boards} pins={pins}/>
+    </div>
+  );
+ */
+
+  return (
+    <div className="app__body">
+      <BrowserRouter>
+        <Header
+          avatar={user.avatar}
+          fullname={`${user.firstName} ${user.lastName}`}
+        />
+        <Switch>
+          <Route path="/boards">
+            <BoardPage user={user} boards={boards} pins={pins} />
+          </Route>
+          <Route path="/user">
+            <UserProfilePage user={user} boards={boards} />
+          </Route>
+          <Route path="/">
+            <HomePage user={user} boards={boards} pins={pins} />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
