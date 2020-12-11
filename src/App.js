@@ -10,6 +10,8 @@ import UserProfilePage from "./pages/userProfilePage";
 
 function App() {
   const [user, setUser] = useState({});
+  const [boards, setBoards] = useState([]);
+  const [pins, setPins] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/users/3")
@@ -17,39 +19,17 @@ function App() {
       .then((json) => setUser(json));
   }, []);
 
-  const [boards, setBoards] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost:5000/api/boards")
       .then((response) => response.json())
       .then((json) => setBoards(json));
   }, []);
 
-  const [pins, setPins] = useState([]);
-
   useEffect(() => {
     fetch("http://localhost:5000/api/pins")
       .then((response) => response.json())
       .then((json) => setPins(json));
   }, []);
-
-  /* return (
-    <div className="app__body">
-      <Header
-        avatar={user.avatar}
-        fullname={`${user.firstName} ${user.lastName}`}
-      />
-      <UserCard
-        avatar={user.avatar}
-        userName={user.userName}
-        fullName={`${user.firstName} ${user.lastName}`}
-        followingCount={user.id}
-      />
-      <BoardList user={user} boards={boards}/>
-      <PinList user={user} boards={boards} pins={pins}/>
-    </div>
-  );
- */
 
   return (
     <div className="app__body">
@@ -59,13 +39,13 @@ function App() {
           fullname={`${user.firstName} ${user.lastName}`}
         />
         <Switch>
-          <Route path="/boards">
+          <Route exact path="/boards/:id">
             <BoardPage user={user} boards={boards} pins={pins} />
           </Route>
-          <Route path="/user">
+          <Route exact path="/user">
             <UserProfilePage user={user} boards={boards} />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <HomePage user={user} boards={boards} pins={pins} />
           </Route>
         </Switch>

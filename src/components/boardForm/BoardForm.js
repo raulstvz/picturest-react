@@ -1,31 +1,28 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./BoardForm.css";
+import Button from "../button/Button";
 
 const BoardForm = ({ visible, user }) => {
-  // Title
-  const [title, setTitle] = useState();
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-
-  //Description
-  const [description, setDescription] = useState();
-
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value);
-  };
+  //formData : combo for the inputs
+  const [formData, setFormData] = useState({
+    title: undefined,
+    description: undefined
+  })
 
   //Body
   const body = {
     author: user.id, //by props
-    title: title,
-    description: description,
+    title: formData.title,
+    description: formData.description,
     collaborators: [],
   };
 
+  console.log(body);
+
   // Fetch function
   const handleCreate = () => {
+    /* setIsFetching(true) */
     const options = {
       method: "POST",
       headers: {
@@ -35,9 +32,21 @@ const BoardForm = ({ visible, user }) => {
     };
 
     fetch("http://localhost:5000/api/boards", options)
-      .then((res) => console.log(res.json))
+      .then((response) => console.log(response.json))
       .then((json) => console.log(json));
+
+    /* setIsFetching(false) */
   };
+
+  // Crear un estado a parte cuando el post termina de ejecutarse
+
+  const [isFetching, setIsFetching] = useState(false)
+
+  /* seEffect(() => {
+    fetch("http://localhost:5000/api/boards")
+      .then((response) => response.json())
+      .then((json) => setBoards(json));
+  }, []); */
 
   return (
     <>
@@ -46,28 +55,27 @@ const BoardForm = ({ visible, user }) => {
           <h4>Create Board</h4>
           <form>
             <label>
-              Name
-              <input type="text" name="name" onChange={handleTitleChange} />
+              Title for your board
+              <input
+                name="title"
+                onChange={(e) =>
+                  setFormData({ ...formData, title: e.target.value })}>
+              </input>
             </label>
             <label>
-              Description
+              Describe your board
               <input
-                type="text"
                 name="description"
-                onChange={handleDescriptionChange}
-              />
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })}>
+              </input>
             </label>
-            <input
-              className="create__button"
-              type="submit"
-              value="Create"
-              onClick={handleCreate}
-            />
+            <Button name="Create" onClick={handleCreate} />
           </form>
         </div>
       ) : (
-        <></>
-      )}
+          <></>
+        )}
     </>
   );
 };

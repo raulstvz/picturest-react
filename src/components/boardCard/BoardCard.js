@@ -51,8 +51,8 @@ const BoardCard = ({ board }) => {
         alt="preview"
         style={{
           position: "relative",
-          marginTop: "-5px",
-          marginBottom: "10px",
+          marginTop: "-10px",
+          marginBottom: "12px",
           height: "140px",
           width: "100px",
           objectFit: "cover",
@@ -93,7 +93,7 @@ const BoardCard = ({ board }) => {
           fontWeight: "400",
           color: "#464646",
         }}
-      >{`${board.pins.length} Pins`}</span>
+      >{/* {`${board.pins.length} Pins`} */} 3 pins</span>
       {active === true ? (
         <>
           <div

@@ -6,10 +6,10 @@ import BoardList from "../components/boardList/BoardList";
 const UserProfilePage = ({ user, boards }) => {
   return (
     <div className="app__body">
-      <Header
+      {/* <Header
         avatar={user.avatar}
         fullname={`${user.firstName} ${user.lastName}`}
-      />
+      /> */}
       <UserCard
         avatar={user.avatar}
         userName={user.userName}
