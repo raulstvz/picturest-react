@@ -1,8 +1,9 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import "./BoardForm.css";
 import Button from "../button/Button";
+import PlusIcon from "../../assets/plus.svg";
 
-const BoardForm = ({ visible, user }) => {
+const BoardForm = ({ user }) => {
 
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const BoardForm = ({ visible, user }) => {
     title: formData.title,
     description: formData.description,
     collaborators: [],
+    pins: []
   };
 
   console.log(body);
@@ -40,16 +42,42 @@ const BoardForm = ({ visible, user }) => {
 
   // Crear un estado a parte cuando el post termina de ejecutarse
 
-  const [isFetching, setIsFetching] = useState(false)
-
-  /* seEffect(() => {
+  /* const [isFetching, setIsFetching] = useState(false)
+  useEffect(() => {
     fetch("http://localhost:5000/api/boards")
       .then((response) => response.json())
       .then((json) => setBoards(json));
   }, []); */
 
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    setVisible(!visible);
+  };
+
   return (
     <>
+      <div className="boardList__header">
+        <h2 className="boardList__title">Boards</h2>
+        {visible === false ? (
+          <img
+            className="boardList__plusIcon"
+            src={PlusIcon}
+            alt="Plus icon"
+            onClick={toggleVisible}
+          />
+        ) : (
+            <img
+              className="boardList__plusIcon"
+              src={PlusIcon}
+              alt="Plus icon"
+              onClick={toggleVisible}
+              style={{
+                transform: "rotate(45deg)"
+              }}
+            />
+          )}
+      </div>
       {visible === true ? (
         <div className="form__container">
           <h4>Create Board</h4>

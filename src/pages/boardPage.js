@@ -1,34 +1,40 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from 'react-router';
+import PinForm from "../components/pinForm/PinForm";
 import PinList from "../components/pinList/PinList";
 
 const BoardPage = ({ user, boards }) => {
   const params = useParams();
+  const boardId = parseInt(params.id)
+  console.log(boardId)
 
   const [board, setBoard] = useState({});
-  const [pins, setPins] = useState([]);
+  const [pinsOfBoard, setPinsOfBoard] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/boards/${params.id}`)
+    fetch('http://localhost:5000/api/boards/' + boardId)
       .then((response) => response.json())
       .then((json) => setBoard(json))
-  }, [])
+  }, [boardId])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/boards/${params.id}`)
+    fetch('http://localhost:5000/api/boards/' + boardId + '/pins')
       .then((response) => response.json())
-      .then((json) => setPins(json.pins))
-  }, [])
+      .then((json) => setPinsOfBoard(json))
+  }, [boardId])
 
-  console.log(pins)
+  console.log(pinsOfBoard)
 
   return (
-    <div className="app__body">
-      <div>
-        <p>{board.title}</p>
-        <p>{board.author}</p>
-      </div>
-      <PinList user={user} boards={boards} pins={pins} />
+    <div>
+      <h3
+        style={{
+          textAlign: "center"
+        }}>
+        {board.title}
+      </h3>
+      <PinForm user={user} boards={boards} />
+      <PinList user={user} boards={board} pins={pinsOfBoard} />
     </div>
   );
 };

@@ -11,10 +11,9 @@ import UserProfilePage from "./pages/userProfilePage";
 function App() {
   const [user, setUser] = useState({});
   const [boards, setBoards] = useState([]);
-  const [pins, setPins] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users/3")
+    fetch("http://localhost:5000/api/users/2")
       .then((response) => response.json())
       .then((json) => setUser(json));
   }, []);
@@ -25,28 +24,20 @@ function App() {
       .then((json) => setBoards(json));
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/pins")
-      .then((response) => response.json())
-      .then((json) => setPins(json));
-  }, []);
 
   return (
     <div className="app__body">
       <BrowserRouter>
-        <Header
-          avatar={user.avatar}
-          fullname={`${user.firstName} ${user.lastName}`}
-        />
+        <Header user={user} />
         <Switch>
           <Route exact path="/boards/:id">
-            <BoardPage user={user} boards={boards} pins={pins} />
+            <BoardPage user={user} boards={boards}/>
           </Route>
           <Route exact path="/user">
-            <UserProfilePage user={user} boards={boards} />
+            <UserProfilePage user={user} />
           </Route>
           <Route exact path="/">
-            <HomePage user={user} boards={boards} pins={pins} />
+            <HomePage user={user} boards={boards} />
           </Route>
         </Switch>
       </BrowserRouter>

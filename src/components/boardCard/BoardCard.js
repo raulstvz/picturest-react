@@ -1,9 +1,13 @@
 import { React, useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import "./BoardCard.css";
 
 import Edit from "../../assets/edit.svg";
 
 const BoardCard = ({ board }) => {
+
+  const history = useHistory();
+
   const [randomImageOne, setRandomImageOne] = useState([]);
 
   let randomNumberOne = Math.floor(Math.random() * 12 + 1);
@@ -93,17 +97,19 @@ const BoardCard = ({ board }) => {
           fontWeight: "400",
           color: "#464646",
         }}
-      >{/* {`${board.pins.length} Pins`} */} 3 pins</span>
+      >{board.pins.length} pins</span>
       {active === true ? (
         <>
           <div
+            onClick={() => history.push(`/boards/${board.id}`)}
             style={{
+              position: "absolute",
               height: "30px",
               width: "30px",
               background: "#fafafa",
               borderRadius: "50%",
               zIndex: 99,
-              marginLeft: "70px",
+              marginLeft: "190px",
               display: "flex",
               alignItems: "center",
             }}
@@ -119,8 +125,8 @@ const BoardCard = ({ board }) => {
           </div>
         </>
       ) : (
-        <></>
-      )}
+          <></>
+        )}
     </div>
   );
 };

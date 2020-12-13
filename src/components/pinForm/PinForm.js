@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import "./PinForm.css";
 import Button from "../button/Button";
+import PlusIcon from "../../assets/plus.svg";
 
-const PinForm = ({ user, boards, visible }) => {
+const PinForm = ({ user, boards }) => {
 
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
@@ -18,10 +19,9 @@ const PinForm = ({ user, boards, visible }) => {
     title: formData.title,
     description: formData.description,
     source: formData.source,
-    board: formData.board,
+    board: parseInt(formData.board), //🎖️ self-developed: stores the id as integer
+    comments: []
   };
-
-  console.log(body);
 
   //Fetch function
   const handleCreate = () => {
@@ -38,8 +38,35 @@ const PinForm = ({ user, boards, visible }) => {
       .then((json) => console.log(json));
   };
 
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    setVisible(!visible);
+  };
+
   return (
     <>
+      <div className="boardList__header">
+        <h2 className="pinList__title">Pins</h2>
+        {visible === false ? (
+          <img
+            className="boardList__plusIcon"
+            src={PlusIcon}
+            alt="Plus icon"
+            onClick={toggleVisible}
+          />
+        ) : (
+            <img
+              className="boardList__plusIcon"
+              src={PlusIcon}
+              alt="Plus icon"
+              onClick={toggleVisible}
+              style={{
+                transform: "rotate(45deg)"
+              }}
+            />
+          )}
+      </div>
       {visible === true ? (
         <div className="form__container">
           <h4>Create pin</h4>

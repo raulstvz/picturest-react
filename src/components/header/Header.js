@@ -6,7 +6,7 @@ import UserMenu from "../userMenu/UserMenu";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 
-const Header = ({ avatar, fullname }) => {
+const Header = ({ user }) => {
   const history = useHistory();
   return (
     <div className="header__container">
@@ -23,9 +23,11 @@ const Header = ({ avatar, fullname }) => {
         <Link to="/">
           <img src={Logo} alt="Picturest Logo" className="header__logo" />
         </Link>
-        <Button name="Home" onClick={() => history.push("/")} /> 
+        <Button name="Home" onClick={() => history.push("/")} />
       </div>
-      <UserMenu avatar={avatar} fullname={fullname} />
+      <Link to="/user">
+        <UserMenu user={user} />
+      </Link>
     </div>
   );
 };
