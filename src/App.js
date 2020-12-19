@@ -7,13 +7,14 @@ import Header from "./components/header/Header";
 import BoardPage from "./pages/boardPage";
 import HomePage from "./pages/homePage";
 import UserProfilePage from "./pages/userProfilePage";
+import LoginPage from "./pages/loginPage";
 
 function App() {
   const [user, setUser] = useState({});
   const [boards, setBoards] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users/2")
+    fetch("http://localhost:5000/api/users/5fde40d891756215e2172851")
       .then((response) => response.json())
       .then((json) => setUser(json));
   }, []);
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path="/user">
             <UserProfilePage user={user} />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage/>
           </Route>
           <Route exact path="/">
             <HomePage user={user} boards={boards} />

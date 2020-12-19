@@ -20,7 +20,6 @@ const BoardForm = ({ user }) => {
     pins: []
   };
 
-  console.log(body);
 
   // Fetch function
   const handleCreate = () => {

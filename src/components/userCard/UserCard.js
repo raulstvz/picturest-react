@@ -23,7 +23,7 @@ const UserCard = ({ user }) => {
                 fontSize: "12px",
                 fontWeight: "500",
                 color: "#464646"
-            }}>{user.followers.length} Following</span>
+            }}>{/* {user.followers.length} */} 6 Following</span>
         </div>
     )
 }
