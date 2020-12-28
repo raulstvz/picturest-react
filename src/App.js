@@ -8,6 +8,7 @@ import BoardPage from "./pages/boardPage";
 import HomePage from "./pages/homePage";
 import UserProfilePage from "./pages/userProfilePage";
 import LoginPage from "./pages/loginPage";
+import SelectedPinPage from "./pages/selectedPinPage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -30,6 +31,9 @@ function App() {
       <BrowserRouter>
         <Header user={user} />
         <Switch>
+        <Route exact path="/pins/:id">
+            <SelectedPinPage />
+          </Route>
           <Route exact path="/boards/:id">
             <BoardPage user={user} boards={boards}/>
           </Route>

@@ -1,7 +1,6 @@
 import React from 'react';
-import './userCard.css';
-
 import { Link } from 'react-router-dom';
+import './userCard.css';
 
 const UserCard = ({ user }) => {
 

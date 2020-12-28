@@ -1,4 +1,12 @@
 .pinList__container{
+    column-count: 4;
+    column-gap: 15px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+/*
+.pinList__container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -8,7 +16,7 @@
     font-weight: 500;
 }
 
-/* .pinList__plusIcon{
+ .pinList__plusIcon{
     height: 25px;
     width: 25px;
     border-radius: 50%;
