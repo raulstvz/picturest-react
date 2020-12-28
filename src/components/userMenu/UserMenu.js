@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
+import { Link } from "react-router-dom";
 import './UserMenu.css';
 import UserDropdown from '../userDropdown/UserDropdown';
-
 import DownArrow from '../../assets/downarrow.svg'
 
 const UserMenu = ({ user }) => {
@@ -16,10 +16,12 @@ const UserMenu = ({ user }) => {
 
     return (
         <div className="userMenu__container">
-            <img src={user.avatar} alt="UserMenu Avatar" className="usermenu_avatar" />
+            <Link to="/user">
+                <img src={user.avatar} alt="UserMenu Avatar" className="usermenu_avatar" />
+            </Link>
             {active === true ? (
                 <>
-                    <img
+                    <img className="usermenu_arrow"
                         src={DownArrow}
                         alt="UserMenu Arrow"
                         onClick={toggleActive}

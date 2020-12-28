@@ -1,31 +1,21 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './UserDropdown.css';
 
-const UserDropdown = ({fullname}) => {
+const UserDropdown = ({ fullname }) => {
     return (
         <div className="dropdown__container">
-            <span style={{
-                    fontSize:"12px",
-                    fontWeight:"500",
-                    color:"#464646"
-                }}>{fullname}
-            </span>
-            <span style={{
-                    fontSize:"14px",
-                    fontWeight:"500"
-            }}>Update Profile</span>
-            <span style={{
-                fontSize:"14px",
-                fontWeight:"500"
-            }}>My boards</span>
-            <span style={{
-                    fontSize:"14px",
-                    fontWeight:"500"
-            }}>My pins</span>
-            <span style={{
-                    fontSize:"14px",
-                    fontWeight:"500"
-            }}>Log out</span>
+            <span className="dropdown__username">{fullname}</span>
+            <Link to="/user/updateprofile">
+                <span className="dropdown__item">Update Profile</span>
+            </Link>
+            <Link to="/user/boards">
+                <span className="dropdown__item">My boards</span>
+            </Link>
+            <Link to="/user/pins">
+                <span className="dropdown__item">My pins</span>
+            </Link>
+            <span className="dropdown__item">Log out</span>
         </div>
     )
 }

@@ -11,23 +11,13 @@ const Header = ({ user }) => {
   return (
     <div className="header__container">
       <div
-        className="header__logo_button"
-        style={{
-          width: "200px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
-      >
+        className="header__logo_button">
         <Link to="/">
           <img src={Logo} alt="Picturest Logo" className="header__logo" />
         </Link>
         <Button name="Home" onClick={() => history.push("/")} />
       </div>
-      <Link to="/user">
-        <UserMenu user={user} />
-      </Link>
+      <UserMenu user={user} />
     </div>
   );
 };

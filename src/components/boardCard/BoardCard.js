@@ -8,36 +8,15 @@ const BoardCard = ({ board }) => {
 
   const history = useHistory();
 
-  const [randomImageOne, setRandomImageOne] = useState([]);
-
-  let randomNumberOne = Math.floor(Math.random() * 12 + 1);
+  const [tempSource, setTempSource] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/pins/${randomNumberOne}`)
+    fetch('http://localhost:5000/api/pins/5fde4d8eb78d631df7bdfc57')
       .then((response) => response.json())
-      .then((json) => setRandomImageOne(json));
+      .then((json) => setTempSource(json.source));
   }, []);
 
-  const [randomImageTwo, setRandomImageTwo] = useState([]);
-
-  let randomNumberTwo = Math.floor(Math.random() * 12 + 1);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/pins/${randomNumberTwo}`)
-      .then((response) => response.json())
-      .then((json) => setRandomImageTwo(json));
-  }, []);
-
-  const [randomImageThree, setRandomImageThree] = useState([]);
-
-  let randomNumberThree = Math.floor(Math.random() * 12 + 1);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/pins/${randomNumberThree}`)
-      .then((response) => response.json())
-      .then((json) => setRandomImageThree(json));
-  }, []);
-
+  
   const [active, setActive] = useState(false);
 
   const toggleActive = () => {
@@ -46,12 +25,12 @@ const BoardCard = ({ board }) => {
 
   return (
     <div
-      className="boardCard__container"
+      className="boardcard__container"
       onMouseOver={toggleActive}
       onMouseOut={toggleActive}
     >
       <img
-        src={randomImageOne.source}
+        src={tempSource}
         alt="preview"
         style={{
           position: "relative",
@@ -64,12 +43,12 @@ const BoardCard = ({ board }) => {
         }}
       />
       <img
-        src={randomImageTwo.source}
+        src={tempSource}
         alt="preview"
         style={{
           position: "absolute",
           marginLeft: "60px",
-          marginBottom: "43px",
+          marginBottom: "45px",
           height: "140px",
           width: "100px",
           objectFit: "cover",
@@ -77,51 +56,30 @@ const BoardCard = ({ board }) => {
         }}
       />
       <img
-        src={randomImageThree.source}
+        src={tempSource}
         alt="preview"
         style={{
           position: "absolute",
           marginLeft: "120px",
-          marginBottom: "43px",
+          marginBottom: "45px",
           height: "140px",
           width: "100px",
           objectFit: "cover",
           borderRadius: "10px",
         }}
       />
-      <span className="boardCard__title">{board.title}</span>
+      <span className="boardCard__title">
+        {board.title}</span>
       <span
-        className="boardCard__pins"
-        style={{
-          fontSize: "11px",
-          fontWeight: "400",
-          color: "#464646",
-        }}
-      >{board.pins.length} pins</span>
+        className="boardCard__pins">{board.pins.length} pins</span>
       {active === true ? (
         <>
           <div
-            onClick={() => history.push(`/boards/${board.id}`)}
-            style={{
-              position: "absolute",
-              height: "30px",
-              width: "30px",
-              background: "#fafafa",
-              borderRadius: "50%",
-              zIndex: 99,
-              marginLeft: "190px",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            <img
+            onClick={() => history.push(`/boards/${board._id}`)}
+            className="boardcard__edit_location">
+            <img className="boardcard__edit_icon"
               src={Edit}
-              alt="edit pin"
-              style={{
-                height: "50%",
-                width: "100%",
-              }}
-            />
+              alt="edit board"/>
           </div>
         </>
       ) : (

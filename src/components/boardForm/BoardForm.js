@@ -23,7 +23,6 @@ const BoardForm = ({ user }) => {
 
   // Fetch function
   const handleCreate = () => {
-    /* setIsFetching(true) */
     const options = {
       method: "POST",
       headers: {
@@ -33,20 +32,10 @@ const BoardForm = ({ user }) => {
     };
 
     fetch("http://localhost:5000/api/boards", options)
-      //.then((response) => console.log(response.json))
-      //.then((json) => console.log(json));
-
-    /* setIsFetching(false) */
+      .then((response) => console.log(response.json))
+      .then((json) => console.log(json));
   };
 
-  // Crear un estado a parte cuando el post termina de ejecutarse
-
-  /* const [isFetching, setIsFetching] = useState(false)
-  useEffect(() => {
-    fetch("http://localhost:5000/api/boards")
-      .then((response) => response.json())
-      .then((json) => setBoards(json));
-  }, []); */
 
   const [visible, setVisible] = useState(false);
 
