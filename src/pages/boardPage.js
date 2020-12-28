@@ -5,8 +5,8 @@ import PinList from "../components/pinList/PinList";
 
 const BoardPage = ({ user, boards }) => {
   const params = useParams();
-  const boardId = parseInt(params.id)
-  console.log(boardId)
+  const boardId = params.id
+  //console.log(boardId)
 
   const [board, setBoard] = useState({});
   const [pinsOfBoard, setPinsOfBoard] = useState([]);
@@ -23,7 +23,7 @@ const BoardPage = ({ user, boards }) => {
       .then((json) => setPinsOfBoard(json))
   }, [boardId])
 
-  console.log(pinsOfBoard)
+  //console.log(pinsOfBoard)
 
   return (
     <div>

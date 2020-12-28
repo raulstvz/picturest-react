@@ -33,8 +33,8 @@ const BoardForm = ({ user }) => {
     };
 
     fetch("http://localhost:5000/api/boards", options)
-      .then((response) => console.log(response.json))
-      .then((json) => console.log(json));
+      //.then((response) => console.log(response.json))
+      //.then((json) => console.log(json));
 
     /* setIsFetching(false) */
   };

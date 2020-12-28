@@ -4,7 +4,7 @@ import PinCard from "../pinCard/PinCard";
 
 const PinList = ({ pins }) => {
 
-  console.log(pins)
+  //console.log(pins)
 
   return (
     <div>

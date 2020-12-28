@@ -34,8 +34,8 @@ const PinForm = ({ user, boards }) => {
     };
 
     fetch("http://localhost:5000/api/pins", options)
-      .then((response) => console.log(response.json))
-      .then((json) => console.log(json));
+      //.then((response) => console.log(response.json))
+      //.then((json) => console.log(json));
   };
 
   const [visible, setVisible] = useState(false);

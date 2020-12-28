@@ -25,7 +25,6 @@ function App() {
       .then((json) => setBoards(json));
   }, []);
 
-
   return (
     <div className="app__body">
       <BrowserRouter>
