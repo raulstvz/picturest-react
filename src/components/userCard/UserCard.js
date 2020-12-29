@@ -6,7 +6,7 @@ const UserCard = ({ user }) => {
 
     return (
         <div className="usercard_container">
-            <Link to="/user">
+            <Link to="/user/updateprofile">
                 <img src={user.avatar} alt="User Avatar" className="usercard_avatar" />
             </Link>
             <span className="usercard_fullName">{user.firstName} {user.lastName}</span>

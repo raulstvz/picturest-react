@@ -1,7 +1,7 @@
 .boardcard__container{
     margin: 25px;
     background-color: #F1F1F1;
-    height: 180px;
+    height: 200px;
     width: 220px;
     border-radius: 14px;
     display: flex;
@@ -15,6 +15,16 @@
     font-size: 11px;
     font-weight: 400;
     color: #464646;
+}
+
+.boardCard__title{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.boardCard__pins{
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .boardcard__edit_location{

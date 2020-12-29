@@ -1,4 +1,5 @@
 .dropdown__container{
+    z-index: 100;
     position: absolute;
     margin-top: 250px;
     right: 20px;

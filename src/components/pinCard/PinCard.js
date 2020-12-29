@@ -5,16 +5,16 @@ import "./PinCard.css";
 const PinCard = ({ pin }) => {
     return (
         <div className="pincard__container">
-            <Link to={'pins/'+pin._id}>
-            <img
-                src={pin.source}
-                alt="Pin"            
-                className="pincard__image" 
-            />
+            <Link to={'pins/' + pin._id}>
+                <img
+                    src={pin.source}
+                    alt="Pin"
+                    className="pincard__image"
+                />
             </Link>
-            <p className="pincard__title">{pin.title}</p>        
+            <p className="pincard__title">{pin.title}</p>
         </div >
-        
+
     )
 };
 

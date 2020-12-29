@@ -7,6 +7,7 @@ import Header from "./components/header/Header";
 import BoardPage from "./pages/boardPage";
 import HomePage from "./pages/homePage";
 import UserProfilePage from "./pages/userProfilePage";
+import UserUpdateProfilePage from "./pages/userUpdateProfilePage";
 import LoginPage from "./pages/loginPage";
 import SelectedPinPage from "./pages/selectedPinPage";
 
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path="/boards/:id">
             <BoardPage user={user} boards={boards}/>
+          </Route>
+          <Route exact path="/user/updateprofile">
+            <UserUpdateProfilePage user={user} />
           </Route>
           <Route exact path="/user">
             <UserProfilePage user={user} />

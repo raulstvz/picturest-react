@@ -1,28 +1,13 @@
-/* .pincard__container{
+.pincard__container{
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-} */
-
-.pinCard__container{
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
+    margin-bottom: 15px;
+    font-size: 14px;
 }
 
 .pincard__image{
     height: auto;
     width: 350px;
     border-radius: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0px;
 };
-
-.pincard__title{
-    position: relative;
-    bottom: 20px;
-    margin-left: 50px
-}

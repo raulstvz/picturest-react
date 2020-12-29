@@ -17,6 +17,10 @@ const Header = ({ user }) => {
         </Link>
         <Button name="Home" onClick={() => history.push("/")} />
       </div>
+      <div className="header__searchbar" >
+        <input className="header__searchbar_input" type="text" placeholder="Search.." />
+        <Button name="Search" />
+      </div>
       <UserMenu user={user} />
     </div>
   );

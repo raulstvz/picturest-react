@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from 'react-router';
+import PinSelected from "../components/pinSelected/PinSelected";
 
 const SelectedPinPage = () => {
-    console.log('Hola')
 
     const params = useParams();
     const pinId = params.id
@@ -17,13 +17,7 @@ const SelectedPinPage = () => {
     }, [])
 
     return (
-        <div style={{
-            display: "flex",
-            flexDirection: "column"
-        }}>
-            <img src={pin.source} />
-            <span>{pin.title}</span>
-        </div>
+        <PinSelected pin={pin} />
     )
 }
 

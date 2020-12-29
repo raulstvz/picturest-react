@@ -1,0 +1,46 @@
+.selectedpin__container {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    border-radius: 20px;
+    width: 50vw;
+    margin-top: 2.5%;
+    background-color: #efefef;
+}
+
+.selectedpin__image__container {
+    height: auto;
+    width: 600px;
+    border-radius: 20px;
+}
+
+.selectedpin__image {
+    max-height: 100%;
+    max-width: 100%;
+    width: 95%;
+    border-radius: 20px 0px 0px 20px;
+    padding: 0px;
+}
+
+.selectedpin__details__container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    width: 500px;
+}
+
+.selectedpin__title{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.selectedpin__description{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.selectedpin__comment{
+    font-size: 14px;
+    font-weight: 300;
+}

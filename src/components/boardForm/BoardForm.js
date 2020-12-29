@@ -67,7 +67,7 @@ const BoardForm = ({ user }) => {
           )}
       </div>
       {visible === true ? (
-        <div className="form__container">
+        <div className="boardform__container">
           <h4>Create Board</h4>
           <form>
             <label>
@@ -86,7 +86,9 @@ const BoardForm = ({ user }) => {
                   setFormData({ ...formData, description: e.target.value })}>
               </input>
             </label>
-            <Button name="Create" onClick={handleCreate} />
+            <div className="createbutton__container">
+              <Button name="Create" onClick={handleCreate} />
+            </div>
           </form>
         </div>
       ) : (

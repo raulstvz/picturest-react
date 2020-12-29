@@ -3,6 +3,6 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  align-content: space-between;
-  height: 100vh;
+  /* align-content: space-between; */
+  /* height: 100vh; */
 };

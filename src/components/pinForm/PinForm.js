@@ -68,7 +68,7 @@ const PinForm = ({ user, boards }) => {
           )}
       </div>
       {visible === true ? (
-        <div className="form__container">
+        <div className="pinform__container">
           <h4>Create pin</h4>
           <form>
             <label>
@@ -104,7 +104,9 @@ const PinForm = ({ user, boards }) => {
                 ))}
               </select>
             </label>
+            <div className="createbutton__container">
             <Button name="Create" onClick={handleCreate} />
+            </div>
           </form>
         </div>
       ) : (

@@ -1,8 +1,39 @@
-select{
-    display: block;
-    height: 30px;
+.pinform__container {
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 2.5% 5%;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     border: 0.5px solid #d8d8d8;
-    border-radius: 10px;
+    border-radius: 5%;
+  }
+
+  .pinform__container>form>label {
+    font-size: 18px;
+}
+
+.pinform__container>form>label>input {
+    width: 95%;
     margin-bottom: 20px;
-    background-color: #ffffff;
+    margin-top: 2.5px;
+    font-size: 16px;
+}
+
+select {
+    width: 95%;
+    margin-bottom: 20px;
+    margin-top: 2.5px;
+    font-size: 16px;
+}
+
+.createbutton__container {
+    display: flex;
+    justify-content: right;
+    margin-left: -15px;
+    max-width: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }

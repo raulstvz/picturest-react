@@ -1,8 +1,8 @@
 .usercard_container {
     position: relative;
     width: 100vw;
-    padding: 100px;
-    height: 210px;
+    padding-bottom: 75px;
+    height: 250px;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -10,24 +10,29 @@
 }
 
 .usercard_avatar{
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
 }
 
+.usercard_avatar:hover{
+    box-shadow: 0px 0px 25px 2.5px rgba(100,100,100,0.25);
+}
+
 .usercard_fullName{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .usercard_username{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     margin-top: -10px
 }
 
 .usercard_following{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: #464646
 }
