@@ -1,4 +1,6 @@
 import "./PinSelected.css"
+import Button from "../button/Button";
+import { Link } from "react-router-dom";
 
 const PinSelected = ({ pin }) => {
 
@@ -25,6 +27,11 @@ const PinSelected = ({ pin }) => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="backbutton__container">
+                <a href="/">
+                    <Button name="Back" />
+                </a>
             </div>
         </div>
     )

@@ -17,7 +17,7 @@ const SelectedPinPage = () => {
     }, [])
 
     return (
-        <PinSelected pin={pin} />
+            <PinSelected pin={pin} />
     )
 }
 

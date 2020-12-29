@@ -1,11 +1,11 @@
-.dropdown__container{
+.dropdown__container {
     z-index: 100;
     position: absolute;
     margin-top: 250px;
     right: 20px;
-    padding: 10px 0px 10px 20px;
+    padding: 15px 5px 15px 15px;
     height: 160px;
-    width: 160px;
+    width: 180px;
     background-color: #f1f1f1;
     border-radius: 10%;
     display: flex;
@@ -13,16 +13,27 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     text-align: left;
-};
-
-.dropdown__username{
-    font-size: 12px;
-    font-weight: 500;
-    color: #464646
 }
 
-.dropdown__item{
-    font-size: 14px;
+;
+.dropdown__item {
+    font-size: 16px;
     font-weight: 500;
     color: #000000
+}
+
+.dropdown__username {
+    color: rgb(20, 20, 20);
+    font-size: 12px;
+}
+
+.dropdown__container>a {
+    text-decoration: none;
+    color: black
+}
+
+.dropdown__container>a:hover {
+    background-color: #e9e9e9;
+    border-radius: 10%;
+    border-radius: 5px;
 }

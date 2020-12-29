@@ -6,6 +6,7 @@
     width: 50vw;
     margin-top: 2.5%;
     background-color: #efefef;
+    margin-bottom: 50px;
 }
 
 .selectedpin__image__container {
@@ -43,4 +44,15 @@
 .selectedpin__comment{
     font-size: 14px;
     font-weight: 300;
+}
+
+.backbutton__container{
+    width: 100px;
+    margin-left: -30px;
+    margin-bottom: 100px;
+
+}
+
+.backbutton__container > a{
+    text-decoration: none;
 }
