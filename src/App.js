@@ -13,18 +13,11 @@ import SelectedPinPage from "./pages/selectedPinPage";
 
 function App() {
   const [user, setUser] = useState({});
-  const [boards, setBoards] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/users/5fde40d891756215e2172851")
       .then((response) => response.json())
       .then((json) => setUser(json));
-  }, []);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/boards")
-      .then((response) => response.json())
-      .then((json) => setBoards(json));
   }, []);
 
   return (
@@ -33,10 +26,10 @@ function App() {
         <Header user={user} />
         <Switch>
         <Route exact path="/pins/:id">
-            <SelectedPinPage />
+            <SelectedPinPage/>
           </Route>
-          <Route exact path="/boards/:id">
-            <BoardPage user={user} boards={boards}/>
+        <Route exact path="/boards/:id">
+            <BoardPage user={user} />
           </Route>
           <Route exact path="/user/updateprofile">
             <UserUpdateProfilePage user={user} />
@@ -48,7 +41,7 @@ function App() {
             <LoginPage/>
           </Route>
           <Route exact path="/">
-            <HomePage user={user} boards={boards} />
+            <HomePage />
           </Route>
         </Switch>
       </BrowserRouter>

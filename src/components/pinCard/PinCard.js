@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import "./PinCard.css";
 
 const PinCard = ({ pin }) => {
+
     return (
         <div className="pincard__container">
             <Link to={'pins/' + pin._id}>

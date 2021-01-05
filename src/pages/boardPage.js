@@ -3,10 +3,10 @@ import { useParams } from 'react-router';
 import PinForm from "../components/pinForm/PinForm";
 import PinList from "../components/pinList/PinList";
 
-const BoardPage = ({ user, boards }) => {
+const BoardPage = ({ user }) => {
   const params = useParams();
   const boardId = params.id
-  //console.log(boardId)
+  console.log(params)
 
   const [board, setBoard] = useState({});
   const [pinsOfBoard, setPinsOfBoard] = useState([]);
@@ -33,7 +33,7 @@ const BoardPage = ({ user, boards }) => {
         }}>
         {board.title}
       </h3>
-      <PinForm user={user} boards={boards} />
+      <PinForm user={user} />
       <PinList user={user} boards={board} pins={pinsOfBoard} />
     </div>
   );

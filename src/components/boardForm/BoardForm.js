@@ -13,12 +13,14 @@ const BoardForm = ({ user }) => {
 
   //Body
   const body = {
-    author: user.id, //by props
+    author: user._id, //by props
     title: formData.title,
     description: formData.description,
     collaborators: [],
     pins: []
   };
+
+  console.log(body)
 
 
   // Fetch function

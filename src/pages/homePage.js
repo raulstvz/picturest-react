@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import "../App.css";
 import PinList from "../components/pinList/PinList";
 
-const HomePage = ({ user, boards }) => {
+const HomePage = () => {
 
   const [pins, setPins] = useState([]);
 
@@ -14,7 +14,7 @@ const HomePage = ({ user, boards }) => {
 
   return (
     <div>
-      <PinList user={user} boards={boards} pins={pins} />
+      <PinList pins={pins} />
     </div>
   );
 };

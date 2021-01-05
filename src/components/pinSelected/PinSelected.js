@@ -1,10 +1,7 @@
 import "./PinSelected.css"
 import Button from "../button/Button";
-import { Link } from "react-router-dom";
 
 const PinSelected = ({ pin }) => {
-
-    console.log(pin)
 
     return (
         <div>

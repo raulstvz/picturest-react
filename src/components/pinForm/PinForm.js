@@ -1,9 +1,16 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./PinForm.css";
 import Button from "../button/Button";
 import PlusIcon from "../../assets/plus.svg";
 
-const PinForm = ({ user, boards }) => {
+const PinForm = ({ user }) => {
+
+  const [boards, setBoards] = useState();
+  useEffect(() => {
+    fetch('http://localhost:5000/api/boards/')
+      .then((response) => response.json())
+      .then((json) => setBoards(json))
+  }, [])
 
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
@@ -15,7 +22,7 @@ const PinForm = ({ user, boards }) => {
 
   //Body
   const body = {
-    author: user.id, //by props
+    author: user._id, //by props
     title: formData.title,
     description: formData.description,
     source: formData.source,
