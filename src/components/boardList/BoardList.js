@@ -13,7 +13,7 @@ const BoardList = ({ user }) => {
     fetch('http://localhost:5000/api/users/' + userId + '/boards')
       .then((response) => response.json())
       .then((json) => setUserBoards(json));
-  }, [userId]);
+  }, [userId, userBoards]);
 
   return (
     <div>

@@ -18,7 +18,7 @@ const UserProfilePage = ({ user }) => {
     fetch("http://localhost:5000/api/users/" + userId + "/pins")
       .then((response) => response.json())
       .then((json) => setUserPins(json));
-  }, [userId]);
+  }, [userId, userPins]);
 
   console.log(userPins)
 
@@ -29,7 +29,7 @@ const UserProfilePage = ({ user }) => {
       <UserCard user={user} />
       <BoardForm user={user} />
       <BoardList user={user} />
-      <PinList pins={userPins} />
+      <PinList pins={userPins} showAll={false}/>
     </div>
   );
 };

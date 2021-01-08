@@ -3,14 +3,14 @@ import "./PinForm.css";
 import Button from "../button/Button";
 import PlusIcon from "../../assets/plus.svg";
 
-const PinForm = ({ user }) => {
+const PinForm = ({ user, board }) => {
 
-  const [boards, setBoards] = useState();
+  /* const [boards, setBoards] = useState();
   useEffect(() => {
     fetch('http://localhost:5000/api/boards/')
       .then((response) => response.json())
       .then((json) => setBoards(json))
-  }, [])
+  }, []) */
 
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
@@ -26,9 +26,12 @@ const PinForm = ({ user }) => {
     title: formData.title,
     description: formData.description,
     source: formData.source,
-    board: parseInt(formData.board), //🎖️ self-developed: stores the id as integer
+    //board: parseInt(formData.board),
+    board: board._id, //by props
     comments: []
   };
+
+  console.log(body)
 
   //Fetch function
   const handleCreate = () => {
@@ -41,8 +44,8 @@ const PinForm = ({ user }) => {
     };
 
     fetch("http://localhost:5000/api/pins", options)
-      //.then((response) => console.log(response.json))
-      //.then((json) => console.log(json));
+    //.then((response) => console.log(response.json))
+    //.then((json) => console.log(json));
   };
 
   const [visible, setVisible] = useState(false);
@@ -104,15 +107,17 @@ const PinForm = ({ user }) => {
             </label>
             <label>
               Board
-              <select onChange={(e) =>
+              {/* <select onChange={(e) =>
                 setFormData({ ...formData, board: e.target.value })}>
                 {boards.map((board) => (
                   <option value={board.id}>{board.title}</option>
                 ))}
-              </select>
+              </select> */}
+              <input disabled="disabled" value={board.title}>
+              </input>
             </label>
             <div className="createbutton__container">
-            <Button name="Create" onClick={handleCreate} />
+              <Button name="Create" onClick={handleCreate} />
             </div>
           </form>
         </div>

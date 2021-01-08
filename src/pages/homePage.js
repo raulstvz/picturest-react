@@ -13,9 +13,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <PinList pins={pins} />
-    </div>
+      <PinList pins={pins} showAll={true}/>
   );
 };
 

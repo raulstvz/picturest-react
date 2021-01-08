@@ -1,13 +1,50 @@
-.pincard__container{
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
+.pincard__container {
     margin-bottom: 15px;
     font-size: 14px;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
-.pincard__image{
+.pincard__image {
     height: auto;
     width: 350px;
-    border-radius: 14px;
-};
+    border-radius: 15px;
+}
+
+.pincard__author__details{
+    height: 46px;
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-start;
+    margin-top: -60px;
+    margin-left: 10px;
+    background-color:rgba(255, 255, 255, 0.85);
+    z-index: 100;
+    border-radius: 25px;
+    font-size: 12px;
+}
+.pincard__author__details__text{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 3.5px;
+    padding-right: 10px;
+}
+
+.pincard__author__details__text > .pincard__details__username {
+    color: rgb(10, 50, 163)
+}
+
+.pincard__author__details__text > .pincard__details__title {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: black
+}
+
+.pincard__author__details__text > .pincard__details__comments {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: rgb(245, 65, 65)
+}

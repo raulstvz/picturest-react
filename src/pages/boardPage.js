@@ -6,7 +6,7 @@ import PinList from "../components/pinList/PinList";
 const BoardPage = ({ user }) => {
   const params = useParams();
   const boardId = params.id
-  console.log(params)
+  //console.log(params)
 
   const [board, setBoard] = useState({});
   const [pinsOfBoard, setPinsOfBoard] = useState([]);
@@ -21,7 +21,7 @@ const BoardPage = ({ user }) => {
     fetch('http://localhost:5000/api/boards/' + boardId + '/pins')
       .then((response) => response.json())
       .then((json) => setPinsOfBoard(json))
-  }, [boardId])
+  }, [boardId, pinsOfBoard])
 
   //console.log(pinsOfBoard)
 
@@ -33,8 +33,8 @@ const BoardPage = ({ user }) => {
         }}>
         {board.title}
       </h3>
-      <PinForm user={user} />
-      <PinList user={user} boards={board} pins={pinsOfBoard} />
+      <PinForm user={user} board={board} />
+      <PinList pins={pinsOfBoard} showAll={false}/>
     </div>
   );
 };
