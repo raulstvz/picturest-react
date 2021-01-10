@@ -1,8 +1,11 @@
 import { React, useState } from "react";
+import { useHistory } from "react-router";
 import "./UserUpdateForm.css";
 import Button from "../button/Button";
 
 const UserUpdateForm = ({ user }) => {
+    
+    const history = useHistory();
 
     //formData : combo for the inputs
     const [formData, setFormData] = useState({
@@ -11,7 +14,7 @@ const UserUpdateForm = ({ user }) => {
         email: user.email,
     })
 
-    console.log(formData)
+    //console.log(formData)
 
     //Body
     const body = {
@@ -21,7 +24,7 @@ const UserUpdateForm = ({ user }) => {
     };
 
     //Fetch function
-    const userId = user._id    
+    const userId = user._id
     const handleUpdate = () => {
         const options = {
             method: "PUT",
@@ -30,22 +33,23 @@ const UserUpdateForm = ({ user }) => {
             },
             body: JSON.stringify(body),
         };
-        console.log(body)
+        //console.log(body)
 
         fetch("http://localhost:5000/api/users/" + userId, options)
-            .then((response) => console.log(response.json))
-            .then((json) => console.log(json));
+        //.then((response) => console.log(response.json))
+        //.then((json) => console.log(json));
     };
 
 
     return (
         <div>
-            <div>
-                <h2>Edit Profile</h2>
-            </div>
             <div className="userupdateform__container">
-                <h4>Update your profile</h4>
+                <div className="userupdateform__header">
+                    <h2>Edit Profile</h2>
+                    <img src={user.avatar} alt="User Avatar" className="usercard_avatar" />
+                </div>
                 <form>
+                    <h4>Update your profile</h4>
                     <label>
                         Avatar (url)
               <input
@@ -77,6 +81,9 @@ const UserUpdateForm = ({ user }) => {
                         <Button name="Update" onClick={handleUpdate} />
                     </div>
                 </form>
+            </div>
+            <div className="backbutton__container">
+                    <Button name="Back" onClick={() => history.goBack()}/>
             </div>
         </div>
     );

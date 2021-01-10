@@ -11,7 +11,9 @@ const UserCard = ({ user }) => {
             </Link>
             <span className="usercard_fullName">{user.firstName} {user.lastName}</span>
             <span className="usercard_username">@{user.username}</span>
-            <span className="usercard_following">{user.followers.length} Following</span>
+            {user.followers &&
+                <span className="usercard_following">{user.followers.length} Following</span>
+            }
         </div>
     )
 }

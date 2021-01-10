@@ -8,6 +8,9 @@ import { useHistory } from "react-router";
 
 const Header = ({ user }) => {
   const history = useHistory();
+
+  console.log(Object.keys(user).length === 0, user)
+
   return (
     <div className="header__container">
       <div
@@ -21,7 +24,12 @@ const Header = ({ user }) => {
         <input className="header__searchbar_input" type="text" placeholder="What inspires you?..." />
         <Button name="Search" />
       </div>
-      <UserMenu user={user} />
+      {Object.keys(user).length !== 0 &&
+        <UserMenu user={user} />
+      }
+      {Object.keys(user).length === 0 &&
+          <Button name="Log in" onClick={() => history.push("/login")} style={{ "margin-left": "-20px" }}/>
+      }
     </div>
   );
 };

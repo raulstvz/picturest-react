@@ -1,7 +1,10 @@
 import "./PinSelected.css"
 import Button from "../button/Button";
+import { useHistory } from "react-router";
 
 const PinSelected = ({ pin }) => {
+
+    const history = useHistory();
 
     return (
         <div>
@@ -26,9 +29,7 @@ const PinSelected = ({ pin }) => {
                 </div>
             </div>
             <div className="backbutton__container">
-                <a href="/">
-                    <Button name="Back" />
-                </a>
+                    <Button name="Back" onClick={() => history.goBack()}/>
             </div>
         </div>
     )

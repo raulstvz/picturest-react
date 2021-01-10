@@ -7,18 +7,18 @@ import Edit from "../../assets/edit.svg";
 const BoardCard = ({ board }) => {
 
   const history = useHistory();
-
-  const [tempSource, setTempSource] = useState([]);
+  const [pinsOfBoard, setPinsOfBoard] = useState()
+  const boardId = board._id
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/pins/5fde4d8eb78d631df7bdfc57')
+    fetch('http://localhost:5000/api/boards/' + boardId + '/pins')
       .then((response) => response.json())
-      .then((json) => setTempSource(json.source));
+      .then((json) => setPinsOfBoard(json));
+    //debugger
   }, []);
 
-  
+  //Activate
   const [active, setActive] = useState(false);
-
   const toggleActive = () => {
     setActive(!active);
   };
@@ -29,49 +29,38 @@ const BoardCard = ({ board }) => {
       onMouseOver={toggleActive}
       onMouseOut={toggleActive}
     >
-      <img
-        src={tempSource}
-        alt="preview"
-        style={{
-          position: "relative",
-          marginTop: "-10px",
-          marginBottom: "12px",
-          height: "150px",
-          width: "100px",
-          objectFit: "cover",
-          borderRadius: "10px",
-        }}
-      />
-      <img
-        src={tempSource}
-        alt="preview"
-        style={{
-          position: "absolute",
-          marginLeft: "60px",
-          marginBottom: "50px",
-          height: "150px",
-          width: "100px",
-          objectFit: "cover",
-          borderRadius: "10px",
-        }}
-      />
-      <img
-        src={tempSource}
-        alt="preview"
-        style={{
-          position: "absolute",
-          marginLeft: "120px",
-          marginBottom: "50px",
-          height: "150px",
-          width: "100px",
-          objectFit: "cover",
-          borderRadius: "10px",
-        }}
-      />
+      {pinsOfBoard &&
+        <>
+          {pinsOfBoard[0] &&
+            <img
+              src={pinsOfBoard[0].source}
+              alt="preview"
+              className="boardcard__firstPin"
+            />
+          }
+          {pinsOfBoard[1] &&
+            <img
+              src={pinsOfBoard[1].source}
+              alt="preview"
+              className="boardcard__secondPin"
+            />
+          }
+          {pinsOfBoard[2] &&
+            <img
+              src={pinsOfBoard[2].source}
+              alt="preview"
+              className="boardcard__thirdPin"
+            />
+          }
+        </>
+      }
       <span className="boardCard__title">
         {board.title}</span>
-      <span
-        className="boardCard__pins">{board.pins.length} pins</span>
+      {pinsOfBoard &&
+        <span
+          className="boardCard__pins">{pinsOfBoard.length} pins
+        </span>
+      }
       {active === true ? (
         <>
           <div
@@ -79,7 +68,7 @@ const BoardCard = ({ board }) => {
             className="boardcard__edit_location">
             <img className="boardcard__edit_icon"
               src={Edit}
-              alt="edit board"/>
+              alt="edit board" />
           </div>
         </>
       ) : (

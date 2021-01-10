@@ -9,6 +9,7 @@ import HomePage from "./pages/homePage";
 import UserProfilePage from "./pages/userProfilePage";
 import UserUpdateProfilePage from "./pages/userUpdateProfilePage";
 import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signupPage";
 import SelectedPinPage from "./pages/selectedPinPage";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 
   useEffect(() => {
     fetch("http://localhost:5000/api/users/5fde40d891756215e2172851")
+    /* fetch("http://localhost:5000/api/") */
       .then((response) => response.json())
       .then((json) => setUser(json));
   }, []);
@@ -39,6 +41,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <LoginPage/>
+          </Route>
+          <Route exact path="/signup">
+            <SignUpPage/>
           </Route>
           <Route exact path="/">
             <HomePage />

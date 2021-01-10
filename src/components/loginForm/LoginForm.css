@@ -1,0 +1,58 @@
+.loginform__container {
+    margin: auto;
+    margin-top: 100px;
+    padding: 2.5% 5%;
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border: 0.5px solid #d8d8d8;
+    border-radius: 5%;
+}
+
+.loginform__container>form>label {
+    font-size: 18px;
+}
+
+.loginform__container>form>label>input {
+    width: 95%;
+    margin-bottom: 20px;
+    margin-top: 2.5px;
+    font-size: 16px;
+}
+
+select {
+    width: 95%;
+    margin-bottom: 20px;
+    margin-top: 2.5px;
+    font-size: 16px;
+}
+
+.loginform__container form div.custom_button {
+    margin-top: 25px;
+    margin-left: 150px;
+    display: flex;
+    justify-content: center;
+    max-width: 150px;
+}
+
+.loginform__logo {
+    padding: 40px 0px;
+}
+
+.create_account__cointainer {
+    margin: 100px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.create_account__cointainer > h3{
+    margin-left: 10px;
+}
+
+.create_account__cointainer div.custom_button {
+    margin-top: 25px;
+    margin-left: 10px;
+    width: 150px;
+}

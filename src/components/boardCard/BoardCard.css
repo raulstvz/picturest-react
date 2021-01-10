@@ -1,8 +1,8 @@
 .boardcard__container{
     margin: 25px;
-    background-color: #F1F1F1;
+    background-color: #f1f1f1;
     height: 200px;
-    width: 220px;
+    min-width: 220px;
     border-radius: 14px;
     display: flex;
     flex-wrap: wrap;
@@ -42,5 +42,39 @@
 .boardcard__edit_icon{
     height: 50%;
     width: 100%;
+}
 
+.boardcard__firstPin{
+    position:relative;
+    margin-top:-10px;
+    margin-bottom: 12px;
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 0.25px solid #f1f1f1;
+}
+
+.boardcard__secondPin{
+    position:absolute;
+    margin-top:60px;
+    margin-bottom: 50px;
+    margin-left: 60px;
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 0.25px solid #f1f1f1;
+}
+
+.boardcard__thirdPin{
+    position:absolute;
+    margin-top:120px;
+    margin-bottom: 50px;
+    margin-left: 120px;
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 0.25px solid #f1f1f1;
 }

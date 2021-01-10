@@ -5,7 +5,7 @@ import BoardCard from "../boardCard/BoardCard";
 const BoardList = ({ user }) => {
 
   const userId = user._id
-  console.log(user._id)
+  //console.log(user._id)
 
   const [userBoards, setUserBoards] = useState([]);
 

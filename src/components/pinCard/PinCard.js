@@ -54,9 +54,6 @@ const PinCard = ({ pin, showAll }) => {
                     }
                 </div>
             }
-            {/* <div className="pincard__title__container">
-                <p className="pincard__title">{pin.title}</p>
-            </div> */}
         </div >
 
     )

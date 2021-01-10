@@ -5,13 +5,6 @@ import PlusIcon from "../../assets/plus.svg";
 
 const PinForm = ({ user, board }) => {
 
-  /* const [boards, setBoards] = useState();
-  useEffect(() => {
-    fetch('http://localhost:5000/api/boards/')
-      .then((response) => response.json())
-      .then((json) => setBoards(json))
-  }, []) */
-
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
     title: undefined,
@@ -31,7 +24,7 @@ const PinForm = ({ user, board }) => {
     comments: []
   };
 
-  console.log(body)
+  //console.log(body)
 
   //Fetch function
   const handleCreate = () => {

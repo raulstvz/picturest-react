@@ -10,7 +10,7 @@ const UserProfilePage = ({ user }) => {
   //const localStorageUser = JSON.parse(localStorage.getItem('user'));
 
   const userId = user._id
-  console.log(user._id)
+  //console.log(user._id)
 
   const [userPins, setUserPins] = useState([]);
 
@@ -20,7 +20,7 @@ const UserProfilePage = ({ user }) => {
       .then((json) => setUserPins(json));
   }, [userId, userPins]);
 
-  console.log(userPins)
+  //console.log(userPins)
 
 
   return (
