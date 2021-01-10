@@ -45,7 +45,7 @@ const LoginForm = () => {
 
   return (
     <div className="loginform__container">
-      <img className="loginform__logo" src={Logo} />
+      <img className="loginform__logo" src={Logo} alt="logo"/>
       <form>
         <label>
           Email

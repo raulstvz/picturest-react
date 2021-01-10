@@ -14,7 +14,7 @@ const SelectedPinPage = () => {
         fetch('http://localhost:5000/api/pins/' + pinId)
             .then((response) => response.json())
             .then((json) => setPin(json))
-    }, [])
+    }, [pinId])
 
     return (
             <PinSelected pin={pin} />

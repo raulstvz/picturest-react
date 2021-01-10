@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import "./PinForm.css";
 import Button from "../button/Button";
 import PlusIcon from "../../assets/plus.svg";

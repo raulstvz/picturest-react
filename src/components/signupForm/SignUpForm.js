@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { useHistory } from "react-router";
 import "./SignUpForm.css";
 import Logo from "../../assets/logo.svg";
@@ -48,7 +48,7 @@ const SignUpForm = () => {
 
     return (
         <div className="signupform__container">
-            <img className="loginform__logo" src={Logo} />
+            <img className="loginform__logo" src={Logo} alt="logo"/>
             <h4>Create new account</h4>
             <form>
                 <label>

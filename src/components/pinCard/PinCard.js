@@ -31,7 +31,7 @@ const PinCard = ({ pin, showAll }) => {
                 <div>
                     {active &&
                         <div className="pincard__author__details">
-                            {showAll == true &&
+                            {showAll === true &&
                                 <>
                                     <img src={author.avatar} alt="UserMenu Avatar" className="usermenu_avatar" />
                                     <div className="pincard__author__details__text">
@@ -40,7 +40,7 @@ const PinCard = ({ pin, showAll }) => {
                                     </div>
                                 </>
                             }
-                            {showAll == false &&
+                            {showAll === false &&
                                 <>
                                     <div className="pincard__author__details__text">
                                         {pin.title &&

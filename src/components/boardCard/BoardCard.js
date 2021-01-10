@@ -15,7 +15,7 @@ const BoardCard = ({ board }) => {
       .then((response) => response.json())
       .then((json) => setPinsOfBoard(json));
     //debugger
-  }, []);
+  }, [boardId]);
 
   //Activate
   const [active, setActive] = useState(false);
